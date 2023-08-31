@@ -20,17 +20,17 @@ while true; do
     if [[ "${is_live}" == "1" ]]; then
         echo "B站正常"
 		NEW_STATUS+="B站正常/"
-        #curl -d "text=直播中！" 'http://miaotixing.com/trigger?id=tzLyHCO'
+        #curl -d "text=直播中！" 'http://miaotixing.com/trigger?id=-------'
     elif [[ "${is_live}" != "1" ]]; then
         echo "B站中断"
 		NEW_STATUS+="B站中断/"
-        #curl -d "text=B站直播中断了！" 'http://miaotixing.com/trigger?id=tzLyHCO'
+        #curl -d "text=B站直播中断了！" 'http://miaotixing.com/trigger?id=-------'
     fi
 <<EOF
   if curl -s "https://www.huya.com/26790602" | grep -q "上次开播"; then
     echo "虎牙关播"
 	NEW_STATUS+="虎牙关播/"
-    #curl -d "text=虎牙关播" http://miaotixing.com/trigger?id=tzLyHCO
+    #curl -d "text=虎牙关播" http://miaotixing.com/trigger?id=-------
   else
     echo "虎牙正常"
 	NEW_STATUS+="虎牙正常/"
@@ -43,7 +43,7 @@ EOF
   else
     echo "斗鱼关播"
 	NEW_STATUS+="斗鱼关播/"
-    #curl -d "text=斗鱼关播/" http://miaotixing.com/trigger?id=tzLyHCO
+    #curl -d "text=斗鱼关播/" http://miaotixing.com/trigger?id=-------
   fi
   
 	url="https://ly.lejin.repl.co"
@@ -73,7 +73,7 @@ do
   else
     echo "${alias} (${ip_address})断连"
 	NEW_STATUS+="${alias} (${ip_address})断连/"
-	#curl -d "text=${alias} (${ip_address})断连" http://miaotixing.com/trigger?id=tzLyHCO
+	#curl -d "text=${alias} (${ip_address})断连" http://miaotixing.com/trigger?id=-------
   fi
 done
 <<EOF
@@ -83,7 +83,7 @@ done
   else
     echo "塞尔达网站下线了"
 	NEW_STATUS+="塞尔达网站下线了/"
-    #curl -d "text=塞尔达网站下线了！" http://miaotixing.com/trigger?id=tzLyHCO
+    #curl -d "text=塞尔达网站下线了！" http://miaotixing.com/trigger?id=-------
   fi
   if curl --output /dev/null --silent --head --fail "https://lele1894.tk/"; then
     echo "tk网站正常"
@@ -91,7 +91,7 @@ done
   else
     echo "tk网站下线了"
 	NEW_STATUS+="tk网站下线了/"
-    #curl -d "text=tk网站下线了！" http://miaotixing.com/trigger?id=tzLyHCO
+    #curl -d "text=tk网站下线了！" http://miaotixing.com/trigger?id=-------
   fi
 EOF
 
@@ -104,7 +104,7 @@ if [ "$flag" = true ]; then
 		if [ "$NEW_STATUS" != "" ]; then
 			#如果存在状态数据，发送到指定邮箱或 HTTP 请求平台
 			echo "状态有变化，发送通知"
-			curl -d "text=$NEW_STATUS" http://miaotixing.com/trigger?id=tzLyHCO
+			curl -d "text=$NEW_STATUS" http://miaotixing.com/trigger?id=-------
 		else
 			# 如果状态没有变化，不发送通知
 			echo "状态没有变化，不发送通知"

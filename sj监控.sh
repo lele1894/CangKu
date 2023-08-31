@@ -6,7 +6,7 @@ declare -A ip_alias=(
   ["jg2"]="0.0.0.0"
   ["jg3"]="0.0.0.0"
   ["jg4"]="0.0.0.0"
-  ["vps"]="26:40:0:24:f6:5f:bc:f2"
+  ["vps"]="26:40:0:24:f6:5f:bc:f"
 )
 # 新建一个变量 $OLD_STATUS
 OLD_STATUS=""

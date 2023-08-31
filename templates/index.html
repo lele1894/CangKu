@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<html>
+<head>
+      <meta charset="UTF-8">
+    <title>B站:32269/留言本</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        form {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        input[type="text"] {
+            width: 80%;   /* 修改这里的宽度 */
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+        
+        ul {
+            margin-top: 20px;
+            list-style-type: none;
+        }
+        
+        li {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>B站:32269/留言本</h1>
+    
+    <form action="/post_message" method="POST">
+        <input type="text" name="message">
+        <input type="submit" value="提交留言">
+    </form>
+    
+<ul>
+    {% for message in messages[::-1] %}
+        <li>{{ message.text }} - {{ message.timestamp }}</li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

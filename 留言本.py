@@ -1,6 +1,10 @@
 from flask import Flask, render_template, request
 from datetime import datetime
 
+#安装flask
+#pip install flask
+
+
 app = Flask(__name__)
 
 MESSAGES_FILE = 'templates/messages.txt'

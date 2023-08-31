@@ -1,5 +1,6 @@
 # CangKu
-仓库
+仓库  
+（两空格换行）  
 {  
 templates/index.html  
           /messages.txt  
